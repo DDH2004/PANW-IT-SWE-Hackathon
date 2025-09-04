@@ -6,6 +6,8 @@ AI-assisted personal finance coach: ingest & enrich transactions, surface insigh
 
 </div>
 
+[Demo Video](https://youtu.be/mxuepQ67po8)
+
 ## ✨ Major Capabilities
 
 | Area | Highlights |
