@@ -12,7 +12,7 @@ AI-assisted personal finance coach: ingest & enrich transactions, surface insigh
 |------|------------|
 | Ingestion | CSV upload, header synonym mapping, automatic description column inference (scored candidates, dry‑run analyze, force toggle), sign inference, canonical rename to `description` |
 | Enrichment | Heuristic categorization, clustering of emergent descriptions, cluster renaming with historical propagation |
-| Insights | Dashboard (timeframe: 1M / 1Y / All), category & merchant breakdown, timeline, anomalies, subscriptions detection |
+| Insights | Dashboard (timeframe: 1M / 1Y / All), category & merchant breakdown, timeline, anomalies (outliers + duplicate detection + selective deletion), subscriptions detection |
 | Goals & Forecast | Goal CRUD + simple goal projection & savings forecast placeholder |
 | Coaching | Local LLM (Ollama) chat, personalized context injection (recent spend, goals), chat history persistence, feedback (+/–) & retention purge |
 | Investment Ideas | Seeded instruments & yield curve, safe save recommendations endpoint (`/coach/recommendations`) |
@@ -180,7 +180,7 @@ Endpoints under `/goals` support create, list, fetch, forecast, and sync operati
 * Dashboard aggregate: `GET /dashboard`
 * Category / merchants / timeline: `/breakdown/categories`, `/breakdown/merchants`, `/breakdown/timeline`
 * Subscriptions: `GET /subscriptions`
-* Anomalies: `GET /anomalies/`
+* Anomalies: `GET /anomalies/` (outliers + duplicate groups) and `POST /anomalies/dedupe` (permanent removal of selected duplicate transaction IDs; confirmation shown in UI). Deletions are irreversible (no undo log retained).
 * Forecast (legacy simple): `GET /forecast`
 
 ## 👤 Auth (Prototype)
@@ -207,6 +207,7 @@ Passwords hashed + pepper (environment variable). Not production grade (no refre
 | GET | /enrich/latest | Latest cluster snapshot |
 | POST | /enrich/rename_cluster | Rename a cluster |
 | GET | /anomalies/ | Outlier transactions |
+| POST | /anomalies/dedupe | Delete selected duplicate transactions (permanent) |
 | GET | /instruments | Investment instruments seed data |
 | GET | /yield_curve | Yield curve points |
 | GET | /coach/recommendations | Safe saving recommendations |
