@@ -1,0 +1,93 @@
+############################
+# Python
+############################
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+.venv/
+env/
+venv/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+############################
+# Environment / Secrets
+############################
+.env
+.env.*
+!.env.example
+*.pem
+
+############################
+# Logs & Runtime
+############################
+*.log
+logs/
+
+############################
+# Database / Data Artifacts
+############################
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+# Keep sample CSVs; do NOT blanket-ignore data/
+# Temporary hidden data dir (if used)
+.data/
+
+############################
+# Node / Frontend
+############################
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.eslintcache
+frontend/coverage/
+.parcel-cache/
+
+############################
+# Build / Cache Misc
+############################
+.dist/
+.cache/
+*.DS_Store
+Thumbs.db
+
+############################
+# Editors / IDE
+############################
+.idea/
+.vscode/
+*.swp
+*.swo
+
+############################
+# Ollama / Models
+############################
+ollama_models/
+models/
+
+############################
+# Docker / Containers (optional caches)
+############################
+.docker-cache/
+
+############################
+# Coverage reports (frontend/back)
+############################
+coverage/
+frontend/coverage/
+
+############################
+# Misc
+############################
+.python-version
