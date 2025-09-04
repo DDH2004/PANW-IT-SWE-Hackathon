@@ -26,7 +26,7 @@ jobs:
         options: >-
           --health-cmd "pg_isready -U postgres" --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
@@ -55,7 +55,7 @@ jobs:
     name: Frontend (lint + build)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Use Node 20
         uses: actions/setup-node@v4
         with:
@@ -83,7 +83,7 @@ jobs:
     needs: [ backend, frontend ]
     if: github.event_name == 'push'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Build backend image
