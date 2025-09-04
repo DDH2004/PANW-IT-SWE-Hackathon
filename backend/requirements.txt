@@ -15,4 +15,4 @@ structlog==24.1.0
 pytest==8.3.2
 python-dotenv==1.0.1
 orjson==3.10.3
-numpy==1.26.4
+numpy==2.0.2
