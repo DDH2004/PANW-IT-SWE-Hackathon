@@ -12,6 +12,10 @@ export default function SubscriptionsPage({ API }) {
   const [subs, setSubs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [resolved, setResolved] = useState(()=>{
+    try { return JSON.parse(localStorage.getItem('resolved_subscriptions_v1')||'[]'); } catch(_) { return []; }
+  });
+  const [showResolved, setShowResolved] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -21,6 +25,18 @@ export default function SubscriptionsPage({ API }) {
       .finally(()=>setLoading(false));
   }, [API]);
 
+  const toggleResolve = (merchant) => {
+    setResolved(prev => {
+      if (prev.includes(merchant)) return prev; // already resolved
+      const next = [...prev, merchant];
+      try { localStorage.setItem('resolved_subscriptions_v1', JSON.stringify(next)); } catch(_){}
+      return next;
+    });
+  };
+
+  const unresolvedSubs = subs.filter(s => !resolved.includes(s.merchant));
+  const resolvedSubs = subs.filter(s => resolved.includes(s.merchant));
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div className="text-red-600 text-sm">{error}</div>;
 
@@ -28,17 +44,34 @@ export default function SubscriptionsPage({ API }) {
     <div className="space-y-6">
       <h2 className="text-xl font-semibold">Recurring & Gray Charges</h2>
       <div className="text-sm text-gray-600 max-w-2xl">Automatically detected recurring merchants, potential free-trial conversions, and small recurring ("gray") charges. Review and cancel unwanted services.</div>
+      <div className="flex items-center gap-4 text-xs">
+        <span className="font-medium">Unresolved: {unresolvedSubs.length}</span>
+        <button onClick={()=>setShowResolved(s=>!s)} className="underline text-indigo-600 disabled:text-gray-400" disabled={resolvedSubs.length===0}>
+          {showResolved? 'Hide Resolved':'Show Resolved'} ({resolvedSubs.length})
+        </button>
+        {resolvedSubs.length>0 && <button onClick={()=>{ setResolved([]); try{localStorage.removeItem('resolved_subscriptions_v1');}catch(_){}; }} className="text-red-500 underline">Reset Resolved</button>}
+      </div>
       <div className="grid md:grid-cols-2 gap-4">
-        {subs.map(s => <SubscriptionCard key={s.merchant} sub={s} />)}
+        {unresolvedSubs.map(s => <SubscriptionCard key={s.merchant} sub={s} onResolve={toggleResolve} resolved={false} />)}
+        {unresolvedSubs.length === 0 && subs.length>0 && <div className="text-sm text-gray-500">All subscriptions resolved.</div>}
         {subs.length === 0 && <div className="text-sm text-gray-500">No recurring patterns detected yet.</div>}
       </div>
+      {showResolved && resolvedSubs.length>0 && (
+        <div className="space-y-3">
+          <h3 className="text-sm font-semibold text-gray-600 mt-4">Resolved</h3>
+          <div className="grid md:grid-cols-2 gap-4 opacity-70">
+            {resolvedSubs.map(s => <SubscriptionCard key={s.merchant} sub={s} onResolve={toggleResolve} resolved />)}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-function SubscriptionCard({ sub }) {
+function SubscriptionCard({ sub, onResolve, resolved }) {
   return (
-    <div className="bg-white rounded shadow p-4 space-y-2">
+    <div className={`bg-white rounded shadow p-4 space-y-2 relative ${resolved? 'border border-dashed border-gray-300':''}`}>
+      {resolved && <span className="absolute top-2 right-2 text-[10px] bg-gray-200 text-gray-600 px-2 py-0.5 rounded">Resolved</span>}
       <div className="flex justify-between items-start">
         <div>
           <div className="font-semibold">{sub.merchant}</div>
@@ -65,8 +98,35 @@ function SubscriptionCard({ sub }) {
       {sub.flags.includes('variable_amount') && (
         <div className="text-xs text-red-700 bg-red-50 p-2 rounded">Variable amount – watch for pricing changes or hidden fees.</div>
       )}
-      <div className="flex justify-end">
-        <button className="text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded" onClick={()=>alert('Implement cancellation flow / provider link')}>Review / Cancel</button>
+      <div className="flex justify-end gap-2">
+        {!resolved && (
+          <button
+            className="text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded"
+            onClick={()=>{
+              // Placeholder for real cancellation flow hook
+              try { alert('Pretend cancellation portal / link opened. Marking resolved.'); } catch(_){}
+              onResolve && onResolve(sub.merchant);
+            }}
+          >Review / Cancel / Resolve</button>
+        )}
+        {resolved && (
+          <button
+            className="text-[10px] px-2 py-1 rounded border text-gray-600 hover:bg-gray-50"
+            onClick={()=>{ /* allow unresolve for quick mistake recovery */
+              if (onResolve) {
+                // Remove from resolved list by rewriting storage (lift state via custom event not needed; handled in parent reset for simplicity)
+                try {
+                  const existing = JSON.parse(localStorage.getItem('resolved_subscriptions_v1')||'[]');
+                  const next = existing.filter(m=>m!==sub.merchant);
+                  localStorage.setItem('resolved_subscriptions_v1', JSON.stringify(next));
+                  // crude trigger: dispatch storage event for React not listening; fallback reload state by forcing location reload? Better to avoid.
+                  // Simpler approach: window.dispatchEvent(new Event('storage')) is ignored in same tab; so we soft prompt user.
+                  alert('Reload page to re-activate this subscription (or click Reset Resolved).');
+                } catch(_){ }
+              }
+            }}
+          >Undo</button>
+        )}
       </div>
     </div>
   );

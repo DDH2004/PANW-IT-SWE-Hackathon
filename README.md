@@ -12,7 +12,7 @@ AI-assisted personal finance coach: ingest & enrich transactions, surface insigh
 |------|------------|
 | Ingestion | CSV upload, header synonym mapping, automatic description column inference (scored candidates, dry‑run analyze, force toggle), sign inference, canonical rename to `description` |
 | Enrichment | Heuristic categorization, clustering of emergent descriptions, cluster renaming with historical propagation |
-| Insights | Dashboard (timeframe: 1M / 1Y / All), category & merchant breakdown, timeline, anomalies (outliers + duplicate detection + selective deletion), subscriptions detection |
+| Insights | Dashboard (timeframe: 1M / 1Y / All), category & merchant breakdown, timeline, anomalies (outliers + duplicate detection + selective deletion), subscriptions detection + resolve workflow |
 | Goals & Forecast | Goal CRUD + AI daily spend forecasting (Prophet w/ fallback), adjustable horizon, confidence bands, heuristic annual projection |
 | Coaching | Local LLM (Ollama) chat, personalized context injection (recent spend, goals), chat history persistence, feedback (+/–) & retention purge |
 | Investment Ideas | Seeded instruments & yield curve, safe save recommendations endpoint (`/coach/recommendations`) |
@@ -182,6 +182,14 @@ Endpoints under `/goals` support create, list, fetch, forecast, and sync operati
 * Subscriptions: `GET /subscriptions`
 * Anomalies: `GET /anomalies/` (outliers + duplicate groups) and `POST /anomalies/dedupe` (permanent removal of selected duplicate transaction IDs; confirmation shown in UI). Deletions are irreversible (no undo log retained).
 * Forecast (AI + fallback): `GET /forecast` (daily spend projection with optional Prophet confidence intervals)
+
+### Subscriptions Resolve UX
+The Subscriptions page supports a client-side "resolve" action to hide items you've reviewed or cancelled:
+* Clicking "Review / Cancel / Resolve" marks the merchant as resolved and removes it from the active grid.
+* A toggle reveals a dimmed Resolved section (ordered separately at the bottom) so you can still audit past items.
+* Counts for unresolved vs resolved are shown; a "Reset Resolved" control clears local state.
+* Persistence uses `localStorage` (`resolved_subscriptions_v1`); no backend mutation yet (safe experimentation, multi-device sync pending future server endpoint).
+* Roadmap option: promote resolved state to backend (ignored/whitelisted subscriptions) + re-surface when spending pattern changes materially.
 
 ### Forecasting Details
 The system attempts an AI-based forecast using Facebook/Meta Prophet if the library is installed and there is sufficient historical transaction span (>= ~45 days of daily data). If Prophet is unavailable or data is insufficient, it falls back to a simple average daily spend projection.
