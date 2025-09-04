@@ -1,0 +1,208 @@
+date,description,amount,category,merchant
+2024-06-15,Starbucks Coffee,-4.55,Food & Drink,Starbucks
+2024-06-15,Starbucks Coffee,-4.55,Food & Drink,Starbucks
+2024-06-16,Uber Trip,-18.20,Transport,Uber
+2024-06-17,Payroll ACME Corp,2500.00,Income,ACME Corp
+2024-06-20,Whole Foods Market,-86.47,Groceries,Whole Foods
+2024-06-22,Netflix Subscription,-15.49,Subscriptions,Netflix
+2024-06-22,Netflix Subscription,-15.49,Subscriptions,Netflix
+2024-06-25,Rent Payment,-1850.00,Housing,Local Apartments
+2024-06-27,Amazon Marketplace,-132.90,Shopping,Amazon
+2024-06-28,Spotify Family,-16.99,Subscriptions,Spotify
+2024-07-02,Payroll ACME Corp,2500.00,Income,ACME Corp
+2024-07-03,Chipotle Mexican Grill,-13.85,Food & Drink,Chipotle
+2024-07-05,Shell Fuel,-52.34,Transport,Shell
+2024-07-05,Shell Fuel,-52.34,Transport,Shell
+2024-07-08,Trader Joes,-54.22,Groceries,Trader Joes
+2024-07-10,Airport Lounge Pass,-69.00,Travel,Priority Pass
+2024-07-15,IRS Tax Refund,350.00,Income,IRS
+2024-07-18,Apple App Store,-4.99,Digital,Apple
+2024-07-19,Apple App Store,-4.99,Digital,Apple
+2024-07-20,Emergency Vet Visit,-742.10,Medical,Vet Clinic
+2024-07-22,Home Depot,-214.77,Home,Home Depot
+2024-07-25,Rent Payment,-1850.00,Housing,Local Apartments
+2024-07-27,Alaska Airlines Ticket,-624.55,Travel,Alaska Airlines
+2024-07-28,Spotify Family,-16.99,Subscriptions,Spotify
+2024-08-01,Payroll ACME Corp,2500.00,Income,ACME Corp
+2024-08-02,Uber Trip,-17.60,Transport,Uber
+2024-08-03,Costco Wholesale,-242.88,Groceries,Costco
+2024-08-05,Shell Fuel,-49.11,Transport,Shell
+2024-08-07,Target Store,-98.33,Shopping,Target
+2024-08-09,Local Diner,-28.44,Food & Drink,Local Diner
+2024-08-10,Apple App Store,-49.99,Digital,Apple
+2024-08-12,Hospital Bill,-1285.44,Medical,General Hospital
+2024-08-15,Freelance Payout,600.00,Income,ClientCo
+2024-08-18,Best Buy Electronics,-884.65,Shopping,Best Buy
+2024-08-19,Best Buy Electronics,-884.65,Shopping,Best Buy
+2024-08-20,Whole Foods Market,-103.45,Groceries,Whole Foods
+2024-08-22,Netflix Subscription,-15.49,Subscriptions,Netflix
+2024-08-25,Rent Payment,-1900.00,Housing,Local Apartments
+2024-08-26,Water Utility,-62.18,Utilities,City Water
+2024-08-27,Amazon Marketplace,-312.70,Shopping,Amazon
+2024-08-28,Spotify Family,-16.99,Subscriptions,Spotify
+2024-09-01,Payroll ACME Corp,2500.00,Income,ACME Corp
+2024-09-02,Uber Trip,-45.30,Transport,Uber
+2024-09-03,Trader Joes,-67.23,Groceries,Trader Joes
+2024-09-05,Shell Fuel,-51.07,Transport,Shell
+2024-09-08,Local Coffee,-5.12,Food & Drink,Local Cafe
+2024-09-10,Amazon Web Services,-420.33,Utilities,AWS
+2024-09-10,Amazon Web Services,-420.33,Utilities,AWS
+2024-09-12,Insurance Premium,-122.55,Insurance,InsureCo
+2024-09-15,Payroll ACME Corp,2500.00,Income,ACME Corp
+2024-09-18,Apple MacBook Pro,-2499.00,Shopping,Apple
+2024-09-20,Whole Foods Market,-96.11,Groceries,Whole Foods
+2024-09-22,Netflix Subscription,-15.49,Subscriptions,Netflix
+2024-09-25,Rent Payment,-1900.00,Housing,Local Apartments
+2024-09-26,Power Utility,-138.42,Utilities,City Power
+2024-09-27,Amazon Marketplace,-57.88,Shopping,Amazon
+2024-09-28,Spotify Family,-16.99,Subscriptions,Spotify
+2024-10-01,Payroll ACME Corp,2500.00,Income,ACME Corp
+2024-10-02,Uber Trip,-19.80,Transport,Uber
+2024-10-03,Trader Joes,-72.01,Groceries,Trader Joes
+2024-10-05,Shell Fuel,-55.90,Transport,Shell
+2024-10-07,Target Store,-112.63,Shopping,Target
+2024-10-08,Local Coffee,-5.12,Food & Drink,Local Cafe
+2024-10-10,Credit Card Annual Fee,-550.00,Fees,Credit Card
+2024-10-12,Insurance Premium,-122.55,Insurance,InsureCo
+2024-10-15,Payroll ACME Corp,2500.00,Income,ACME Corp
+2024-10-18,Apple App Store,-4.99,Digital,Apple
+2024-10-20,Whole Foods Market,-111.34,Groceries,Whole Foods
+2024-10-22,Netflix Subscription,-15.49,Subscriptions,Netflix
+2024-10-25,Rent Payment,-1900.00,Housing,Local Apartments
+2024-10-26,Gas Utility,-74.19,Utilities,City Gas
+2024-10-27,Amazon Marketplace,-89.14,Shopping,Amazon
+2024-10-28,Spotify Family,-16.99,Subscriptions,Spotify
+2024-11-01,Payroll ACME Corp,2500.00,Income,ACME Corp
+2024-11-02,Uber Trip,-21.90,Transport,Uber
+2024-11-03,Costco Wholesale,-301.44,Groceries,Costco
+2024-11-05,Shell Fuel,-61.22,Transport,Shell
+2024-11-07,Target Store,-142.88,Shopping,Target
+2024-11-09,Local Diner,-31.22,Food & Drink,Local Diner
+2024-11-10,Apple App Store,-49.99,Digital,Apple
+2024-11-12,Insurance Premium,-122.55,Insurance,InsureCo
+2024-11-15,Payroll ACME Corp,2500.00,Income,ACME Corp
+2024-11-18,Hospital Bill,-2440.10,Medical,General Hospital
+2024-11-19,Hospital Bill,-2440.10,Medical,General Hospital
+2024-11-20,Whole Foods Market,-129.77,Groceries,Whole Foods
+2024-11-22,Netflix Subscription,-15.49,Subscriptions,Netflix
+2024-11-25,Rent Payment,-1900.00,Housing,Local Apartments
+2024-11-26,Power Utility,-141.77,Utilities,City Power
+2024-11-27,Amazon Marketplace,-176.88,Shopping,Amazon
+2024-11-28,Spotify Family,-16.99,Subscriptions,Spotify
+2024-12-01,Payroll ACME Corp,2500.00,Income,ACME Corp
+2024-12-02,Uber Trip,-23.40,Transport,Uber
+2024-12-03,Trader Joes,-81.55,Groceries,Trader Joes
+2024-12-05,Shell Fuel,-59.77,Transport,Shell
+2024-12-07,Target Store,-188.45,Shopping,Target
+2024-12-08,Local Coffee,-5.12,Food & Drink,Local Cafe
+2024-12-10,Holiday Flights,-1280.22,Travel,Delta Airlines
+2024-12-12,Insurance Premium,-122.55,Insurance,InsureCo
+2024-12-15,Payroll ACME Corp,2500.00,Income,ACME Corp
+2024-12-18,Apple App Store,-4.99,Digital,Apple
+2024-12-20,Whole Foods Market,-146.92,Groceries,Whole Foods
+2024-12-22,Netflix Subscription,-15.49,Subscriptions,Netflix
+2024-12-25,Rent Payment,-1900.00,Housing,Local Apartments
+2024-12-26,Gas Utility,-88.33,Utilities,City Gas
+2024-12-27,Amazon Marketplace,-214.55,Shopping,Amazon
+2024-12-28,Spotify Family,-16.99,Subscriptions,Spotify
+2025-01-01,Payroll ACME Corp,2550.00,Income,ACME Corp
+2025-01-02,Uber Trip,-19.40,Transport,Uber
+2025-01-03,Trader Joes,-76.11,Groceries,Trader Joes
+2025-01-04,Yearly Gym Membership,-499.00,Fitness,Fitness Center
+2025-01-05,Shell Fuel,-57.43,Transport,Shell
+2025-01-07,Target Store,-132.11,Shopping,Target
+2025-01-08,Local Coffee,-5.12,Food & Drink,Local Cafe
+2025-01-10,Apple App Store,-49.99,Digital,Apple
+2025-01-12,Insurance Premium,-126.25,Insurance,InsureCo
+2025-01-15,Payroll ACME Corp,2550.00,Income,ACME Corp
+2025-01-18,Apple MacBook Pro,-2499.00,Shopping,Apple
+2025-01-20,Whole Foods Market,-139.42,Groceries,Whole Foods
+2025-01-22,Netflix Subscription,-15.49,Subscriptions,Netflix
+2025-01-25,Rent Payment,-1950.00,Housing,Local Apartments
+2025-01-26,Power Utility,-151.27,Utilities,City Power
+2025-01-27,Amazon Marketplace,-324.88,Shopping,Amazon
+2025-01-28,Spotify Family,-16.99,Subscriptions,Spotify
+2025-02-01,Payroll ACME Corp,2550.00,Income,ACME Corp
+2025-02-02,Uber Trip,-22.11,Transport,Uber
+2025-02-03,Costco Wholesale,-312.10,Groceries,Costco
+2025-02-05,Shell Fuel,-63.88,Transport,Shell
+2025-02-07,Target Store,-147.27,Shopping,Target
+2025-02-09,Local Diner,-35.11,Food & Drink,Local Diner
+2025-02-10,Apple App Store,-4.99,Digital,Apple
+2025-02-12,Insurance Premium,-126.25,Insurance,InsureCo
+2025-02-15,Payroll ACME Corp,2550.00,Income,ACME Corp
+2025-02-18,Emergency Vet Visit,-812.34,Medical,Vet Clinic
+2025-02-19,Emergency Vet Visit,-812.34,Medical,Vet Clinic
+2025-02-20,Whole Foods Market,-151.87,Groceries,Whole Foods
+2025-02-22,Netflix Subscription,-15.49,Subscriptions,Netflix
+2025-02-25,Rent Payment,-1950.00,Housing,Local Apartments
+2025-02-26,Water Utility,-78.55,Utilities,City Water
+2025-02-27,Amazon Marketplace,-412.44,Shopping,Amazon
+2025-02-28,Spotify Family,-16.99,Subscriptions,Spotify
+2025-03-01,Payroll ACME Corp,2550.00,Income,ACME Corp
+2025-03-02,Uber Trip,-24.77,Transport,Uber
+2025-03-03,Trader Joes,-84.90,Groceries,Trader Joes
+2025-03-05,Shell Fuel,-61.05,Transport,Shell
+2025-03-07,Target Store,-155.11,Shopping,Target
+2025-03-08,Local Coffee,-5.12,Food & Drink,Local Cafe
+2025-03-10,Apple App Store,-49.99,Digital,Apple
+2025-03-12,Insurance Premium,-126.25,Insurance,InsureCo
+2025-03-15,Payroll ACME Corp,2550.00,Income,ACME Corp
+2025-03-18,Hospital Bill,-1722.88,Medical,General Hospital
+2025-03-19,Hospital Bill,-1722.88,Medical,General Hospital
+2025-03-20,Whole Foods Market,-164.55,Groceries,Whole Foods
+2025-03-22,Netflix Subscription,-15.49,Subscriptions,Netflix
+2025-03-25,Rent Payment,-1950.00,Housing,Local Apartments
+2025-03-26,Gas Utility,-102.11,Utilities,City Gas
+2025-03-27,Amazon Marketplace,-232.30,Shopping,Amazon
+2025-03-28,Spotify Family,-16.99,Subscriptions,Spotify
+2025-04-01,Payroll ACME Corp,2550.00,Income,ACME Corp
+2025-04-02,Uber Trip,-26.44,Transport,Uber
+2025-04-03,Trader Joes,-89.33,Groceries,Trader Joes
+2025-04-05,Shell Fuel,-64.22,Transport,Shell
+2025-04-07,Target Store,-166.40,Shopping,Target
+2025-04-09,Local Diner,-37.22,Food & Drink,Local Diner
+2025-04-10,Apple App Store,-4.99,Digital,Apple
+2025-04-12,Insurance Premium,-126.25,Insurance,InsureCo
+2025-04-15,Payroll ACME Corp,2550.00,Income,ACME Corp
+2025-04-18,Apple App Store,-4.99,Digital,Apple
+2025-04-20,Whole Foods Market,-172.11,Groceries,Whole Foods
+2025-04-22,Netflix Subscription,-15.49,Subscriptions,Netflix
+2025-04-25,Rent Payment,-1950.00,Housing,Local Apartments
+2025-04-26,Power Utility,-162.44,Utilities,City Power
+2025-04-27,Amazon Marketplace,-245.66,Shopping,Amazon
+2025-04-28,Spotify Family,-16.99,Subscriptions,Spotify
+2025-05-01,Payroll ACME Corp,2550.00,Income,ACME Corp
+2025-05-02,Uber Trip,-27.10,Transport,Uber
+2025-05-03,Costco Wholesale,-344.55,Groceries,Costco
+2025-05-05,Shell Fuel,-66.51,Transport,Shell
+2025-05-07,Target Store,-172.33,Shopping,Target
+2025-05-08,Local Coffee,-5.12,Food & Drink,Local Cafe
+2025-05-10,Apple App Store,-49.99,Digital,Apple
+2025-05-12,Insurance Premium,-126.25,Insurance,InsureCo
+2025-05-15,Payroll ACME Corp,2550.00,Income,ACME Corp
+2025-05-18,Best Buy Electronics,-1399.99,Shopping,Best Buy
+2025-05-19,Best Buy Electronics,-1399.99,Shopping,Best Buy
+2025-05-20,Whole Foods Market,-178.77,Groceries,Whole Foods
+2025-05-22,Netflix Subscription,-15.49,Subscriptions,Netflix
+2025-05-25,Rent Payment,-1950.00,Housing,Local Apartments
+2025-05-26,Water Utility,-88.11,Utilities,City Water
+2025-05-27,Amazon Marketplace,-312.90,Shopping,Amazon
+2025-05-28,Spotify Family,-16.99,Subscriptions,Spotify
+2025-06-01,Payroll ACME Corp,2600.00,Income,ACME Corp
+2025-06-02,Uber Trip,-28.44,Transport,Uber
+2025-06-03,Trader Joes,-92.11,Groceries,Trader Joes
+2025-06-05,Shell Fuel,-68.77,Transport,Shell
+2025-06-07,Target Store,-188.10,Shopping,Target
+2025-06-08,Local Coffee,-5.12,Food & Drink,Local Cafe
+2025-06-10,Apple App Store,-4.99,Digital,Apple
+2025-06-12,Insurance Premium,-129.99,Insurance,InsureCo
+2025-06-15,Payroll ACME Corp,2600.00,Income,ACME Corp
+2025-06-18,Hospital Bill,-2144.66,Medical,General Hospital
+2025-06-19,Hospital Bill,-2144.66,Medical,General Hospital
+2025-06-20,Whole Foods Market,-184.55,Groceries,Whole Foods
+2025-06-22,Netflix Subscription,-15.49,Subscriptions,Netflix
+2025-06-25,Rent Payment,-2000.00,Housing,Local Apartments
+2025-06-26,Gas Utility,-112.88,Utilities,City Gas
+2025-06-27,Amazon Marketplace,-356.44,Shopping,Amazon
+2025-06-28,Spotify Family,-16.99,Subscriptions,Spotify
