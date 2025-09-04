@@ -1,0 +1,23 @@
+date,description,amount,merchant
+# Moderate regular expenses (August 2025)
+2025-08-01,Lunch,-22.50,Cafe Spot
+2025-08-02,Lunch,-25.10,Cafe Spot
+2025-08-03,Lunch,-19.80,Cafe Spot
+2025-08-04,Dinner,-24.75,Bistro
+2025-08-05,Dinner,-23.40,Bistro
+2025-08-06,Lunch,-27.00,Cafe Spot
+2025-08-07,Groceries,-28.60,WholeFoods
+2025-08-08,Groceries,-21.30,WholeFoods
+2025-08-09,Groceries,-26.90,WholeFoods
+2025-08-10,Snack,-24.10,Cafe Spot
+2025-08-11,Snack,-22.95,Cafe Spot
+2025-08-12,Snack,-23.80,Cafe Spot
+2025-08-13,Groceries,-25.60,WholeFoods
+2025-08-14,Dinner,-21.75,Bistro
+2025-08-15,Dinner,-29.20,Bistro
+# Extreme outlier (should be flagged)
+2025-08-16,Emergency Vet Bill,-400.00,VetCare
+# Duplicate charges same date (should form duplicate group)
+2025-09-01,Coffee,-4.50,Starbucks
+2025-09-01,Coffee,-4.50,Starbucks
+2025-09-01,Coffee,-4.50,Starbucks

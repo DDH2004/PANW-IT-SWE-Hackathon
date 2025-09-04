@@ -1,0 +1,76 @@
+date,description,amount,merchant
+# Income (monthly)
+2025-06-01,Salary June,3000.00,Employer Inc
+2025-07-01,Salary July,3000.00,Employer Inc
+2025-08-01,Salary August,3000.00,Employer Inc
+2025-09-01,Salary September,3000.00,Employer Inc
+# Rent / Housing
+2025-06-03,Rent,-1250.00,Landlord LLC
+2025-07-03,Rent,-1250.00,Landlord LLC
+2025-08-03,Rent,-1250.00,Landlord LLC
+2025-09-03,Rent,-1250.00,Landlord LLC
+# Groceries (variable)
+2025-06-04,Grocery,-62.13,WholeFoods
+2025-06-11,Grocery,-71.45,WholeFoods
+2025-06-18,Grocery,-55.27,WholeFoods
+2025-06-25,Grocery,-69.88,WholeFoods
+2025-07-05,Grocery,-63.90,WholeFoods
+2025-07-12,Grocery,-79.11,WholeFoods
+2025-07-19,Grocery,-52.40,WholeFoods
+2025-07-26,Grocery,-81.33,WholeFoods
+2025-08-02,Grocery,-54.23,WholeFoods
+2025-08-10,Grocery,-63.11,WholeFoods
+2025-08-17,Grocery,-47.90,WholeFoods
+2025-08-24,Grocery,-66.54,WholeFoods
+2025-09-07,Grocery,-68.22,WholeFoods
+2025-09-14,Grocery,-72.91,WholeFoods
+# Coffee / Small Food
+2025-06-02,Coffee,-4.25,Starbucks
+2025-06-09,Coffee,-5.10,Starbucks
+2025-06-16,Coffee,-4.50,Starbucks
+2025-06-23,Coffee,-4.50,Starbucks
+2025-07-01,Coffee,-4.75,Starbucks
+2025-07-08,Coffee,-4.90,Starbucks
+2025-07-15,Coffee,-4.50,Starbucks
+2025-07-22,Coffee,-6.20,Starbucks
+2025-07-29,Coffee,-4.50,Starbucks
+2025-08-01,Coffee,-4.50,Starbucks
+2025-08-08,Coffee,-4.50,Starbucks
+2025-08-15,Coffee,-4.50,Starbucks
+2025-08-22,Coffee,-5.30,Starbucks
+2025-08-29,Coffee,-4.50,Starbucks
+2025-09-05,Coffee,-4.80,Starbucks
+2025-09-12,Coffee,-5.10,Starbucks
+# Transport (ride share + anomaly large fare)
+2025-06-06,Ride Share,-18.40,Uber
+2025-06-13,Ride Share,-16.75,Uber
+2025-06-20,Ride Share,-22.90,Uber
+2025-06-27,Ride Share,-17.35,Uber
+2025-07-04,Ride Share,-19.10,Uber
+2025-07-11,Ride Share,-18.05,Uber
+2025-07-18,Ride Share,-21.60,Uber
+2025-07-25,Ride Share,-19.45,Uber
+2025-08-05,Ride Share,-18.40,Uber
+2025-08-12,Ride Share,-16.90,Uber
+2025-08-19,Ride Share,-210.00,Uber
+2025-08-26,Ride Share,-17.10,Uber
+2025-09-09,Ride Share,-19.75,Uber
+2025-09-16,Ride Share,-18.55,Uber
+# Subscriptions (streaming/music; duplicate charges scenario)
+2025-06-01,Subscription Music,-9.99,Spotify
+2025-07-01,Subscription Music,-9.99,Spotify
+2025-08-01,Subscription Music,-9.99,Spotify
+2025-09-01,Subscription Music,-9.99,Spotify
+2025-06-15,Streaming Video,-15.99,Netflix
+2025-07-15,Streaming Video,-15.99,Netflix
+2025-08-15,Streaming Video,-15.99,Netflix
+2025-09-15,Streaming Video,-15.99,Netflix
+2025-08-15,Subscription Music,-9.99,Spotify
+# One-off Large Purchases (to test outliers)
+2025-07-10,New Phone,-899.00,ElectroMart
+2025-09-02,Laptop,-1299.00,ElectroMart
+# Income bonus (irregular positive)
+2025-08-20,Performance Bonus,750.00,Employer Inc
+# Edge cases: zero / near-zero
+2025-08-21,Refund Coffee,4.50,Starbucks
+2025-08-22,Adjustment,0.00,WholeFoods

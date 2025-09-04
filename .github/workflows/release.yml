@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate changelog (git log)
+        id: changelog
+        run: |
+          echo 'changelog<<EOF' >> $GITHUB_OUTPUT
+          git log -n 50 --pretty=format:'* %h %s (%an)' >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body: ${{ steps.changelog.outputs.changelog }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build images
+        run: |
+          docker build -f backend.Dockerfile -t smart-coach-backend:${GITHUB_REF_NAME} .
+          docker build -f frontend.Dockerfile -t smart-coach-frontend:${GITHUB_REF_NAME} .
+      - name: (Optional) Push to GHCR
+        if: false
+        run: |
+          echo "echo $GITHUB_TOKEN | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin"
+          echo "docker tag smart-coach-backend:${GITHUB_REF_NAME} ghcr.io/<owner>/smart-coach-backend:${GITHUB_REF_NAME}"
