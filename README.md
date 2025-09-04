@@ -13,7 +13,7 @@ AI-assisted personal finance coach: ingest & enrich transactions, surface insigh
 | Ingestion | CSV upload, header synonym mapping, automatic description column inference (scored candidates, dry‑run analyze, force toggle), sign inference, canonical rename to `description` |
 | Enrichment | Heuristic categorization, clustering of emergent descriptions, cluster renaming with historical propagation |
 | Insights | Dashboard (timeframe: 1M / 1Y / All), category & merchant breakdown, timeline, anomalies (outliers + duplicate detection + selective deletion), subscriptions detection |
-| Goals & Forecast | Goal CRUD + simple goal projection & savings forecast placeholder |
+| Goals & Forecast | Goal CRUD + AI daily spend forecasting (Prophet w/ fallback), adjustable horizon, confidence bands, heuristic annual projection |
 | Coaching | Local LLM (Ollama) chat, personalized context injection (recent spend, goals), chat history persistence, feedback (+/–) & retention purge |
 | Investment Ideas | Seeded instruments & yield curve, safe save recommendations endpoint (`/coach/recommendations`) |
 | Personalization | Stored coach messages per user, feedback storage, cluster rename memory |
@@ -65,7 +65,7 @@ Secrets & Docker:
 * Compose / K8s: mount via secrets objects or external vault (e.g., HashiCorp Vault, AWS Secrets Manager).
 
 ## 📦 Tech Stack
-Backend: FastAPI, SQLAlchemy, Pandas, structlog, (placeholder forecasting logic)  
+Backend: FastAPI, SQLAlchemy, Pandas, structlog, Prophet (if available) + heuristic fallback forecasting  
 AI: Local Ollama (default model configurable)  
 Frontend: React, TailwindCSS, Recharts, Axios  
 Infra: Docker / docker-compose  
@@ -181,7 +181,56 @@ Endpoints under `/goals` support create, list, fetch, forecast, and sync operati
 * Category / merchants / timeline: `/breakdown/categories`, `/breakdown/merchants`, `/breakdown/timeline`
 * Subscriptions: `GET /subscriptions`
 * Anomalies: `GET /anomalies/` (outliers + duplicate groups) and `POST /anomalies/dedupe` (permanent removal of selected duplicate transaction IDs; confirmation shown in UI). Deletions are irreversible (no undo log retained).
-* Forecast (legacy simple): `GET /forecast`
+* Forecast (AI + fallback): `GET /forecast` (daily spend projection with optional Prophet confidence intervals)
+
+### Forecasting Details
+The system attempts an AI-based forecast using Facebook/Meta Prophet if the library is installed and there is sufficient historical transaction span (>= ~45 days of daily data). If Prophet is unavailable or data is insufficient, it falls back to a simple average daily spend projection.
+
+Frontend `Forecast` page features:
+* Method selector: `auto` (default), `prophet`, or `simple`.
+* Horizon selector (14–365 days) controlling forecast length.
+* Stats summary: actual method used, annual projection (heuristic), next 30/60/90 day aggregate spend (if within horizon).
+* Daily chart: predicted spend area + optional dashed upper/lower confidence bands (Prophet only).
+* Reason note: explains fallback causes (e.g., `prophet_library_missing`, `insufficient_history`).
+
+API: `GET /forecast`
+Query Params:
+* `method` (optional): `auto` | `prophet` | `simple` (default: auto)
+* `horizon_days` (optional): int (default: 90)
+
+Sample Response (Prophet path):
+```json
+{
+	"forecast_method": "prophet",
+	"annual_spend_projection": 18250.42,
+	"next_30d_spend": 1520.33,
+	"next_60d_spend": 3015.87,
+	"next_90d_spend": 4550.11,
+	"daily_forecast": [
+		{ "date": "2025-09-05", "predicted_spend": 52.13, "lower": 41.9, "upper": 63.8 },
+		{ "date": "2025-09-06", "predicted_spend": 50.77, "lower": 40.6, "upper": 61.4 }
+	],
+	"reason": null
+}
+```
+
+Fallback Response (simple heuristic) example (no interval band):
+```json
+{
+	"forecast_method": "simple",
+	"annual_spend_projection": 17400.00,
+	"next_30d_spend": 1450.00,
+	"daily_forecast": [
+		{ "date": "2025-09-05", "predicted_spend": 48.33, "lower": 48.33, "upper": 48.33 }
+	],
+	"reason": "prophet_library_missing"
+}
+```
+
+Quick curl:
+```bash
+curl "http://localhost:8000/forecast?method=auto&horizon_days=120"
+```
 
 ## 👤 Auth (Prototype)
 * Register: `POST /auth/register`
@@ -199,7 +248,7 @@ Passwords hashed + pepper (environment variable). Not production grade (no refre
 | GET | /transactions/{id}/category/history | Category change audit |
 | POST | /admin/wipe | Development data wipe |
 | GET | /subscriptions | Recurring spend detection |
-| GET | /forecast | Simple savings projection |
+ | GET | /forecast | Daily spend forecast (Prophet or heuristic) |
 | GET | /breakdown/categories | Category aggregation |
 | GET | /breakdown/merchants | Merchant aggregation |
 | GET | /breakdown/timeline | Time series spending |
@@ -264,7 +313,7 @@ pytest -q
 (Add more granular test modules under `tests/` as features mature.)
 
 ## 🧭 Roadmap (Next Pass)
-* Advanced forecasting (Prophet / ML) integrated with goals.
+* Deeper forecast-goal integration (what-if savings scenarios, goal attainment probability curves).
 * Production auth (JWT refresh, role isolation, rate limiting).
 * Rich anomaly explanations & root-cause suggestions.
 * Natural language query to SQL with guardrails.

@@ -10,6 +10,7 @@ import SubscriptionsPage from '../components/SubscriptionsPage';
 import EnrichmentPage from '../components/EnrichmentPage';
 import BreakdownPage from '../components/BreakdownPage';
 import OnboardingOverlay from '../components/OnboardingOverlay';
+import ForecastPage from '../components/ForecastPage';
 
 const API = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
@@ -48,6 +49,7 @@ export default function App() {
     { key: 'goals', label: 'Goals' },
     { key: 'coach', label: 'Coach' },
     { key: 'anomalies', label: 'Anomalies' },
+  { key: 'forecast', label: 'Forecast' },
     { key: 'settings', label: 'Settings' },
   ];
   return (
@@ -75,6 +77,7 @@ export default function App() {
   {view === 'subscriptions' && <SubscriptionsPage API={API} />}
   {view === 'enrichment' && <EnrichmentPage API={API} />}
   {view === 'breakdown' && <BreakdownPage API={API} />}
+  {view === 'forecast' && <ForecastPage API={API} />}
       </main>
       {showOnboarding && (
         <OnboardingOverlay
